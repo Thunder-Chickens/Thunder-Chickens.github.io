@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.1df552e3.css",
-    "main.js": "./static/js/main.ea88c5e8.js",
+    "main.css": "./static/css/main.2467f2c5.css",
+    "main.js": "./static/js/main.346c3836.js",
     "static/js/787.a6e75ec8.chunk.js": "./static/js/787.a6e75ec8.chunk.js",
     "static/media/grace_scarlett.JPG": "./static/media/grace_scarlett.0d31affe9989e0605115.JPG",
     "static/media/peter_cool.jpg": "./static/media/peter_cool.ffba4487abb54188084c.jpg",
@@ -26,12 +26,12 @@
     "static/media/egg.png": "./static/media/egg.d90d8bd3c60914256e9d.png",
     "static/media/instagram.png": "./static/media/instagram.0bcd1dcb7d853c327af7.png",
     "index.html": "./index.html",
-    "main.1df552e3.css.map": "./static/css/main.1df552e3.css.map",
-    "main.ea88c5e8.js.map": "./static/js/main.ea88c5e8.js.map",
+    "main.2467f2c5.css.map": "./static/css/main.2467f2c5.css.map",
+    "main.346c3836.js.map": "./static/js/main.346c3836.js.map",
     "787.a6e75ec8.chunk.js.map": "./static/js/787.a6e75ec8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1df552e3.css",
-    "static/js/main.ea88c5e8.js"
+    "static/css/main.2467f2c5.css",
+    "static/js/main.346c3836.js"
   ]
 }
