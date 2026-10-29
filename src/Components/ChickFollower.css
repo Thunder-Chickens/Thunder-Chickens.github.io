@@ -1,0 +1,40 @@
+.chick-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 4rem;
+    pointer-events: none;   /* Never block clicks on the page */
+    z-index: 10;
+    will-change: transform;
+}
+
+.chick-body {
+    transform-origin: 50% 100%;   /* Waddle from the feet */
+}
+
+.chick-body.walking {
+    animation: chick-waddle 0.35s ease-in-out infinite;
+}
+
+.chick-sprite {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.12s;
+}
+
+/* The image faces right, so mirror it to face left */
+.chick-sprite.facing-left {
+    transform: scaleX(-1);
+}
+
+@keyframes chick-waddle {
+    0%, 100% { transform: rotate(-6deg) translateY(0); }
+    50%      { transform: rotate(6deg) translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chick-body.walking {
+        animation: none;
+    }
+}
