@@ -10,6 +10,7 @@ const members = [
   { role: 'Member', name: 'Pranay Krishnamurthi', link: 'https://www.instagram.com/pranaydk17/' },
   { role: 'Member', name: 'Abigail Dunn' },
   { role: 'Member', name: 'Rebekkah Chow' },
+  { role: 'Member', name: 'Enoch Yeo' },
 ];
 
 const alumni = [
