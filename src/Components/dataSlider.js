@@ -44,7 +44,7 @@ const dataSlider = [
     {
         id: uuidv4(),
         title: "Peter",
-        text: "Random photo of me cuz I'm maintaining this site and I can >:)",
+        text: "The original Thunderchicken, basking in glory",
         type: image, 
         img: peter_cool
     },
