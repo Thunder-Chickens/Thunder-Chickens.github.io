@@ -70,13 +70,16 @@ const ChickFollower = ({ start, onGone }) => {
             const feetY = pos.y + chick.offsetHeight / 2;
             const hit = pos.x >= face.left && pos.x <= face.right &&
                         feetY >= face.top && feetY <= face.bottom;
-            return hit ? { img, feetY } : null;
+            return hit ? { img, face } : null;
         };
 
-        const strike = ({ img, feetY }) => {
+        const strike = ({ img, face }) => {
             window.removeEventListener('pointermove', handleMove);
             setMode('idle');
-            setZap({ x: pos.x, y: feetY, points: boltPoints(pos.x, feetY) });
+            // Always strike the middle of the face, wherever the chick stepped in
+            const x = (face.left + face.right) / 2;
+            const y = (face.top + face.bottom) / 2;
+            setZap({ x, y, points: boltPoints(x, y) });
 
             img.classList.remove('zapped');
             void img.offsetWidth;            // restart the animation if it's mid-play

@@ -23,7 +23,7 @@ const dataSlider = [
         // Click hatchSpot (2nd from right) and a chick hatches and follows the cursor;
         // walk it onto zapSpot (Joey, far left) and lightning strikes.
         hatchSpot: { x: 0.59, y: 0.195, w: 0.09, h: 0.135 },
-        zapSpot: { x: 0.215, y: 0.245, w: 0.08, h: 0.13 }
+        zapSpot: { x: 0.185, y: 0.2, w: 0.14, h: 0.21 }
     },
     {
         id: uuidv4(),
