@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './ChickFollower.css';
 import chickImage from '../Images/chick.png';
+// "Electric Shock" from Wikimedia Commons (CC BY-SA 4.0), originally via freesounds:
+// https://commons.wikimedia.org/wiki/File:Electric_Shock.ogg
+import zapSound from '../Audio/zap.mp3';
 
 const WALK_SPEED = 160;   // px per second
 const ARRIVED = 6;        // close enough, stand still
@@ -80,6 +83,9 @@ const ChickFollower = ({ start, onGone }) => {
             const x = (face.left + face.right) / 2;
             const y = (face.top + face.bottom) / 2;
             setZap({ x, y, points: boltPoints(x, y) });
+            const sfx = new Audio(zapSound);
+            sfx.volume = 0.6;
+            sfx.play().catch(() => {});   // sound is a bonus; ignore autoplay blocks
 
             img.classList.remove('zapped');
             void img.offsetWidth;            // restart the animation if it's mid-play
