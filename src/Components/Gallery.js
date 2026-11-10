@@ -1,5 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import ChickFollower, { spotRect } from './ChickFollower';
+import chirpSound from '../Audio/chirp.mp3';
 import {Link} from 'react-scroll'; 
 import './Gallery.css';
 import dataSlider from './dataSlider';
@@ -44,7 +46,23 @@ const Gallery = () => {
         }
     }
     const moveDot = index => {
-        setSlideIndex(index); 
+        setSlideIndex(index);
+    }
+
+    // Easter egg: click the hatch spot on a photo and a chick hatches there and follows the cursor
+    const [chickStart, setChickStart] = useState(null);
+    const chirpRef = useRef(null);
+
+    const tryHatch = (e, spot) => {
+        if (chickStart) return;   // one chick at a time
+        const r = spotRect(e.currentTarget, spot);
+        if (!r || e.clientX < r.left || e.clientX > r.right ||
+            e.clientY < r.top || e.clientY > r.bottom) return;
+
+        if (!chirpRef.current) chirpRef.current = new Audio(chirpSound);
+        chirpRef.current.currentTime = 0;
+        chirpRef.current.play().catch(() => {});
+        setChickStart({ x: e.clientX, y: e.clientY });
     }
 
     return (
@@ -58,7 +76,12 @@ const Gallery = () => {
                             <div key={obj.id} className={slideIndex === index + 1? "slide active-anim" : "nothing"}>
                                 {/*<img src={process.env.PUBLIC_URL + '/Images/img${index+1}.jpg'}></img>*/}
                                 {obj.type ? 
-                                    (<img src={obj.img} alt={obj.title}/> 
+                                    (<img
+                                        src={obj.img}
+                                        alt={obj.title}
+                                        data-zap-spot={obj.zapSpot ? JSON.stringify(obj.zapSpot) : undefined}
+                                        onClick={obj.hatchSpot ? (e) => tryHatch(e, obj.hatchSpot) : undefined}
+                                    />
                                     ) : 
                                     (<VideoContainer src={obj.vid} type="video/mp4" isActive={slideIndex === index + 1} />)
                                 }
@@ -88,7 +111,8 @@ const Gallery = () => {
                         ); 
                     })}
                 </div>
-            </div>  
+            </div>
+            {chickStart && <ChickFollower start={chickStart} onGone={() => setChickStart(null)} />}
         </section>
     ); 
 }

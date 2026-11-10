@@ -67,6 +67,30 @@
     border-radius: 1rem; 
 }
 
+/* Struck by the chick's lightning */
+.slide img.zapped {
+    animation: zapped 0.9s ease-out;
+}
+
+@keyframes zapped {
+    0%   { filter: brightness(4) contrast(2); transform: translateX(0); }
+    15%  { filter: brightness(0.3) grayscale(1); transform: translateX(-8px); }
+    30%  { filter: brightness(3); transform: translateX(8px); }
+    45%  { filter: brightness(0.5) sepia(1); transform: translateX(-5px); }
+    60%  { transform: translateX(4px); }
+    100% { filter: none; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide img.zapped {
+        animation-name: zapped-calm;
+    }
+    @keyframes zapped-calm {
+        0%   { filter: brightness(2); }
+        100% { filter: none; }
+    }
+}
+
 .active-anim {
     opacity: 1;
 }

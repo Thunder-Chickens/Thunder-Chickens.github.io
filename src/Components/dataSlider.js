@@ -17,8 +17,13 @@ const dataSlider = [
         id: uuidv4(),
         title: "Thunderchickens @ Beacon at the Bay",
         text: "Thunderchickens chilling with alumnus Peter and Crabnadi veteran Joey Kusnadi",
-        type: image, 
-        img: beaconBay
+        type: image,
+        img: beaconBay,
+        // Easter egg spots, as fractions of the image (x, y = top-left corner).
+        // Click hatchSpot (2nd from right) and a chick hatches and follows the cursor;
+        // walk it onto zapSpot (Joey, far left) and lightning strikes.
+        hatchSpot: { x: 0.59, y: 0.195, w: 0.09, h: 0.135 },
+        zapSpot: { x: 0.215, y: 0.245, w: 0.08, h: 0.13 }
     },
     {
         id: uuidv4(),

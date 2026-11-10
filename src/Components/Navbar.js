@@ -6,15 +6,10 @@ import eggImage from '../Images/egg.png';
 import hatchedImage from '../Images/chick.png';
 import chirpSound from '../Audio/chirp.mp3';  // Your chick chirp sound file
 import { Link } from 'react-scroll';
-import ChickFollower from './ChickFollower.js';
-
-const HATCHES_FOR_FOLLOWER = 3;  // Hatch this many chicks and one follows you around
 
 const Navbar = () => {
     const [eggs, setEggs] = useState([]);
     const audioRef = useRef(new Audio(chirpSound));  // Pre-load the sound
-    const hatchCount = useRef(0);
-    const [followerStart, setFollowerStart] = useState(null);
 
     const handleLogoClick = () => {
         const id = Date.now();
@@ -25,7 +20,7 @@ const Navbar = () => {
         }, 6000);
     };
 
-    const handleEggClick = (id, e) => {
+    const handleEggClick = (id) => {
         // Check if it was an egg before hatching
         const wasEgg = eggs.find(e => e.id === id)?.isHatched === false;
 
@@ -37,18 +32,10 @@ const Navbar = () => {
         if (wasEgg) {
             audioRef.current.currentTime = 0;  // Rewind to start
             audioRef.current.play();
-
-            hatchCount.current += 1;
-            if (hatchCount.current === HATCHES_FOR_FOLLOWER) {
-                // The chick that just hatched hops out and starts following
-                const rect = e.currentTarget.getBoundingClientRect();
-                setFollowerStart({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
-            }
         }
     };
 
     return (
-        <>
         <nav className="navbar">
             <div className="logo-wrapper">
                 <img
@@ -64,7 +51,7 @@ const Navbar = () => {
                         <div
                             key={egg.id}
                             className="dropping-egg"
-                            onClick={(e) => !egg.isHatched && handleEggClick(egg.id, e)}
+                            onClick={() => !egg.isHatched && handleEggClick(egg.id)}
                         >
                             <img
                                 src={egg.isHatched ? hatchedImage : eggImage}
@@ -89,8 +76,6 @@ const Navbar = () => {
                 </button>
             </Link>
         </nav>
-        {followerStart && <ChickFollower start={followerStart} />}
-        </>
     );
 }
 
