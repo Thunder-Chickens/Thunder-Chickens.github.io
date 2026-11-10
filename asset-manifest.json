@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.3200794d.css",
-    "main.js": "./static/js/main.3b2a78f3.js",
+    "main.js": "./static/js/main.3b59f396.js",
     "static/js/787.a6e75ec8.chunk.js": "./static/js/787.a6e75ec8.chunk.js",
     "static/media/grace_scarlett.JPG": "./static/media/grace_scarlett.0d31affe9989e0605115.JPG",
     "static/media/peter_cool.jpg": "./static/media/peter_cool.ffba4487abb54188084c.jpg",
@@ -19,6 +19,7 @@
     "static/media/chick.png": "./static/media/chick.e38c82ed25ccaa9bbf80.png",
     "static/media/chirp.mp3": "./static/media/chirp.44874258105fa26af023.mp3",
     "static/media/group.png": "./static/media/group.00b876131cb0e4d8da33.png",
+    "static/media/zap.mp3": "./static/media/zap.99244e6a2c3fdf2ebca1.mp3",
     "static/media/logo.png": "./static/media/logo.fb9eb42a561a9c275fba.png",
     "static/media/gears.png": "./static/media/gears.72452e7de1bef2a6ad5e.png",
     "static/media/right.png": "./static/media/right.27e98bc0bfdaa1f1392a.png",
@@ -27,11 +28,11 @@
     "static/media/instagram.png": "./static/media/instagram.0bcd1dcb7d853c327af7.png",
     "index.html": "./index.html",
     "main.3200794d.css.map": "./static/css/main.3200794d.css.map",
-    "main.3b2a78f3.js.map": "./static/js/main.3b2a78f3.js.map",
+    "main.3b59f396.js.map": "./static/js/main.3b59f396.js.map",
     "787.a6e75ec8.chunk.js.map": "./static/js/787.a6e75ec8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3200794d.css",
-    "static/js/main.3b2a78f3.js"
+    "static/js/main.3b59f396.js"
   ]
 }
